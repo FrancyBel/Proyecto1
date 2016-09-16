@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -284,11 +285,10 @@ public class InputFrame extends JFrame {
                     //Setea el valor de la ruta completa del archivo seleccionado a la caja de texto pathTF
                     pathTF.setText(absolutePath);
                     try {
-                        //Crea un nuevo BufferedReader para leer el contenido del archivo
-                        BufferedReader bufferedReader = new BufferedReader(new FileReader(selectedFile));
-                        //Loop para leer todas las lineas del archivo
-                        while ((bufferedReader.readLine()) != null) {
-                            textoCargado = bufferedReader.readLine();
+                        try (Scanner scanner = new Scanner(selectedFile)) {
+                            while (scanner.hasNext()) {
+                                textoCargado = scanner.nextLine();
+                            }
                         }
                         //Valida si el textoCargado está vació
                         if (textoCargado != null) {
