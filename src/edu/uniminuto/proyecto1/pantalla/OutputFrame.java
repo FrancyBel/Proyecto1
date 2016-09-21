@@ -266,8 +266,7 @@ public class OutputFrame extends JFrame {
     private void invertirTextoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invertirTextoBActionPerformed
         texto = textArea.getText();
         ValidarTexto validarTexto = new ValidarTexto();
-        this.setVisible(false);
-        validarTexto.buscarOcurrencias(validarTexto.separarCadena(texto), palabraBuscadaTF.getText());
+         textArea.setText(validarTexto.separarCadena(texto));
 
     }//GEN-LAST:event_invertirTextoBActionPerformed
 
