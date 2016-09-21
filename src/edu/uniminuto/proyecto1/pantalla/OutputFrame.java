@@ -22,7 +22,7 @@ import javax.swing.text.Highlighter.HighlightPainter;
  * @since 16-11-2016
  */
 public class OutputFrame extends JFrame {
-
+    
     private String texto = "";
 
     /**
@@ -81,7 +81,7 @@ public class OutputFrame extends JFrame {
                 //Setea la caja de texto numOcurrenciasTF con las ocurrencias encontradas
                 numOcurrenciasTF.setText(numeroOcurrencias);
                 invertirTextoB.setEnabled(true);
-
+                
             } else {
                 //Setea la caja de texto palabraEncontradaTF con el texto NO
                 palabraEncontradaTF.setText("NO");
@@ -266,7 +266,9 @@ public class OutputFrame extends JFrame {
     private void invertirTextoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invertirTextoBActionPerformed
         texto = textArea.getText();
         ValidarTexto validarTexto = new ValidarTexto();
-        textArea.setText(validarTexto.invertirTexto(texto));
+        this.setVisible(false);
+        validarTexto.buscarOcurrencias(validarTexto.separarCadena(texto), palabraBuscadaTF.getText());
+
     }//GEN-LAST:event_invertirTextoBActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

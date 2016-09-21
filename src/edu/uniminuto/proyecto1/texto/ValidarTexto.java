@@ -2,6 +2,7 @@ package edu.uniminuto.proyecto1.texto;
 
 import edu.uniminuto.proyecto1.pantalla.OutputFrame;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -44,6 +45,16 @@ public class ValidarTexto {
         outputFrame.setVisible(true);
     }
 
+    public String separarCadena(String texto) {
+        StringBuilder cadena = new StringBuilder();
+        String[] auxText = texto.split("\\s+");
+        for (int i = 0; i < auxText.length; i++) {
+            auxText[i] = invertirTexto(auxText[i]);
+            cadena = cadena.append(" ").append(auxText[i]);
+        }
+        return cadena.toString();
+    }
+
     /**
      * Método invertirTexto recibe un String y reversa el texto usando
      * recursividad.
@@ -52,6 +63,7 @@ public class ValidarTexto {
      * @return texto
      */
     public String invertirTexto(String texto) {
+
         int ultimo = texto.length() - 1;
         if (ultimo >= 0) {
             texto = texto.charAt(ultimo) + invertirTexto(texto.substring(0, ultimo));
@@ -60,4 +72,5 @@ public class ValidarTexto {
             return "";
         }
     }
+
 }
