@@ -46,12 +46,18 @@ public class ValidarTexto {
     }
 
     public String separarCadena(String texto) {
+        //String builder para armar el texto final
         StringBuilder cadena = new StringBuilder();
+        //Separar el texto recibido por espacios y guardar palabras en arreglo
         String[] auxText = texto.split("\\s+");
+        //Loop para recorrer el arreglo
         for (int i = 0; i < auxText.length; i++) {
+            //Se invierte la palabra que esta en cada posicion
             auxText[i] = invertirTexto(auxText[i]);
+            //Se construye el string apartir del arreglo
             cadena = cadena.append(" ").append(auxText[i]);
         }
+        //retorna el StringBuilder como String
         return cadena.toString();
     }
 

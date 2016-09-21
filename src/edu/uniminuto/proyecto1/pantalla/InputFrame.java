@@ -284,9 +284,11 @@ public class InputFrame extends JFrame {
                     pathTF.setText(absolutePath);
                     try {
                         try (Scanner scanner = new Scanner(selectedFile)) {
+                            StringBuilder builder = new StringBuilder();
                             while (scanner.hasNext()) {
-                                textoCargado = scanner.nextLine();
+                                builder.append("").append(scanner.nextLine().trim());
                             }
+                            textoCargado = builder.toString();
                         }
                         //Valida si el textoCargado está vació
                         if (textoCargado != null) {
